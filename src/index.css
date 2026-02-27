@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-border: #262626;
+  --color-accent: #00d26a; /* IXL-ish green but more vibrant */
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-gray-100 font-sans antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-gray-600 transition-colors;
+  }
+}
+
+.glass {
+  @apply bg-surface/80 backdrop-blur-md border border-border;
+}
+
+.game-card-hover {
+  @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-accent/10 hover:border-accent/50;
+}
+
